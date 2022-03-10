@@ -1,0 +1,58 @@
+# AWS Networking Terraform module
+
+## This module will create:
+- _VPC_
+- _Public Subnets_
+- _Private Subnets_
+
+## **Diagram**
+
+![](diagram/Network.png)
+
+## **Usage**
+```terraform
+module "networking" {
+  source = "./networking" # <== Path to the networking module. 
+
+  vpc_cidr         = var.vpc_cidr
+  public_sn_count  = 3
+  private_sn_count = 3
+}
+```
+## **Requirments**
+| Name | Version |
+|------|---------|
+| ``terraform`` | ``~> 1.0`` |
+| ``aws`` | ``~> 4.0`` |
+
+## **Resources**
+| Name | Type |
+|------|------|
+|[aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)| resource|
+|[aws_internet_gateway.igw](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)| resource|
+|[random_integer.random](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer)| resource|
+|[aws_subnet.public_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)|resource|
+|[aws_subnet.private_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)|resource|
+|[aws_route_table.public_route_table](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table)|resource|
+|[aws_route.public_igw](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route)|resource|
+|[aws_route_table_association.public_assoc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association)|resource|
+|[aws_route_table.private_route_table](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_tablea)|resource|
+|[aws_route.private_nat_gateway](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route)|resource|
+|[aws_route_table_association.private_assoc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association)|resource|
+|[aws_nat_gateway](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway)|resource|
+|[aws_eip.nat_eip](nat_eip)|resource|
+
+## **Inputs**
+| Name| Description| Type| Default| Required |
+|-----|------------|-----|--------|----------|
+|``vpc_cidr`` | The IPv4 CIDR block for the VPC. | `string` | `no` | yes |
+| ``public_sn_count`` | Amount of Public Subnets to create | `number` | `no` | yes|
+|``private_sn_count`` | Amount of Private Subnets to create | `number` | `no` | yes|
+| ``max_subnets`` | Max amount of subnets | `number` | `20` | no |
+
+## **Outputs**
+|Name|Description|
+|----|-----------|
+|`vpc_id`|The ID of the VPC.|
+|`public_subnets`|The IDs of Public Subnets.|
+|`private_subnets`|The IDs of the Private Subnets.|
