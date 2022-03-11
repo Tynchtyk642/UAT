@@ -46,7 +46,7 @@ module "networking" {
 module "bastion" {
   source = "./bastion"
 
-  bastion_name          = var.bastion_name
+  bastion_name = var.bastion_name
 
   bucket_name           = "s3-for-public-key"
   region                = "us-east-1"

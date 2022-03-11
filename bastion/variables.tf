@@ -55,6 +55,7 @@ variable "disk_size" {
 
 variable "bastion_name" {
   description = "Bastion Launch template Name, will also be used for the ASG"
+  type        = string
   default     = "bastion"
 }
 

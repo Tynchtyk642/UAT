@@ -72,4 +72,33 @@ Then perform the following commands on the root folder:
 |[aws_ami.amazon-linux-2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami)|data source|
 |[aws_subnet.subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet)|data source|
 
+## **Inputs**
+|Name|Description|Type|Default|Required|
+|`tags`|A mapping of tags to assign.|`map(string)`|`{}`|no|
+|`bastion_ami`|The AMI that the Bastion Host will use.|`string`|`""`|yes|
+|`associate_public_ip_address`|Whether to associate a public IP address with an instance in a VPC.|`bool`|`true`|no|
+|`bastion_additional_security_groups`|List of additional security groups to attach to the launch template|`list(string`|`[]`|no|
+|`region`|Region where the Bastion will located|`string`|no|yes|
+|`extra_user_data_content`|Additional scripting to pass to the bastion host. For example, this can include installing postgresql for the 'psql' command.| `string`|`""`|no|
+|`enable_logs_s3_sync`|Enable cron job to copy logs to S3.|`bool`|`true`|no|
+|`disk_encrypt`|Instance EBS encrypt.|`bool`|`true`|no|
+|`disk_size`|Root EBS size.|`number`|`8`|no|
+|`bastion_name`|Bastion Launch template Name, will aslo be used for the ASG.|`string`|`bastion`|no|
+|`autoscaling_subnets`|List of subnet were the Auto Scaling Group will deploy the instnaces.|`list(string)`|no|yes|
+|`bastion_security_group_id`|Custom security to use.|`string`|`""`|no|
+|`allow_ssh_commands`|Allows the SSH uset to execute one-off commands. Pass true to enable. Warning: These commands are not logged and increase the vulnerability of the system. Use at your own discretion.|`bool`|`false`|no|
+|`cidrs`|List of CIDRs than can access to the bastion.|`list(string)`|`["0.0.0.0/0",]`|no|
+|`vpc_id`|VPC ID were we'll deploy the bastion.|`string`|no|yes|
+|`public_ssh_port`|Set the SSH port to use from desktop to the bastion.|`number`|22|no|
+|`ipv6_cidrs`|List of IPv6 CIDRs than can access to the bastion.|`list(string)`|`["::/0",]`|no|
+|`private_ssh_port`|Set the SSH port to use between the bastion and private instance.|`number`|22|no|
+|`bastion_host_key_pair`|Select the key pair to use to launch the bastion host.|`string`|no|no|
+|`bucket_name`|Bucket name were the bastion will store the logs.|`string`|no|no|
+|`bucket_force_destroy`|The bucket and all objects should be destroyed when using true.|`bool`|`true`|no|
+|`bucket_versioning`|The bucket and all objects should be destroyed when using true.|`bool`|`true`|yes|
+|`log_expiry_days`|Number of days before logs expiration.|`number`|`90`|yes|
+|`log_auto_clean`|Enable or note the lifecycle.|`bool`|`false`|no|
+|`kms_enable_key_rotation`|Enable key rotation fo the KMS key|`bool`|`false`|no|
+
+
 
