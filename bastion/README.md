@@ -100,6 +100,11 @@ Then perform the following commands on the root folder:
 |`log_expiry_days`|Number of days before logs expiration.|`number`|`90`|yes|
 |`log_auto_clean`|Enable or note the lifecycle.|`bool`|`false`|no|
 |`kms_enable_key_rotation`|Enable key rotation fo the KMS key|`bool`|`false`|no|
+|`is_lb_private`|If TRUE the load balacner scheme will be \"internal\" else \"internet-facing\""|`bool`|no|yes|
+|`elb_subnets`|List of subnet were the ELB will be deployed.|`list(string)`|no|no|
+|`bastion_iam_role_name`|IAM role name to create.|`string`|`null`|no|
+|`bastion_iam_permissions_boundary`|IAM Role Permissions Boundary to constrain the bastion host role.|`string`|`""`|no|
+|`bastion_iam_policy_name`|IAM policy name to create for granting the instance role access to the bucket.|`string`|`BastionHost`|no|
 
 
 
