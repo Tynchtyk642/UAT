@@ -31,7 +31,7 @@ Then perform the following commands on the root folder:
 - `terraform init` terraform initialization
 - `terraform plan` to see the infrastructure plan
 - `terraform apply` to apply infrastructure build
-- `terraform destroy` to destroy the build infrastructure
+- `terraform destroy` to destroy the infrastructure
 
 
 ## **Resources**

@@ -46,7 +46,7 @@ module "networking" {
 module "bastion" {
   source = "./bastion"
 
-  bastion_name = var.bastion_name
+  bastion_name          = var.bastion_name
 
   bucket_name           = "s3-for-public-key"
   region                = "us-east-1"
@@ -61,11 +61,9 @@ module "bastion" {
   autoscaling_subnets = module.networking.public_subnets
 
   tags = {
-    "name"        = "my_bastion_name"
-    "description" = "my_bastion_description"
-    "toto"        = "tate"
+    name        = "my_bastion_name"
+    description = "my_bastion_description"
   }
-
 }
 
 resource "aws_key_pair" "test" {
