@@ -29,6 +29,7 @@ module "bastion" {
     description = "my_bastion_description"
   }
 }
+```
 
 ```bash
 export AWS_ACCESS_KEY_ID=<write your access key id>
