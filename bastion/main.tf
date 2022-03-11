@@ -1,7 +1,3 @@
-data "aws_kms_alias" "kms_ebs" {
-  name = "alias/aws/ebs"
-}
-
 #=========================== Bastion host ==============================
 resource "aws_launch_template" "bastion_launch_template" {
   name_prefix            = local.name_prefix
