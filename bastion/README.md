@@ -4,7 +4,17 @@
 - _SSH Bastion host_
 
 ## **Diagram**
+This module will create an SSH Bastion to securly connect in SSH to your private instances.
 ![](diagram/bastion.png)
+
+All SSH commands are logged on an S3 Bucket for security compliance, in the /logs/ path.
+
+SSH users are managed by their public key, simply drop the SSH key of the user in the /public-keys path of the bucket. Keys should be named like `username.pub`, this will create the user `username` on the bastion server. Username must contain alphanumeric characters only.
+
+Then after you'll be able to connect to the server with:
+```bash
+ssh -i [path_to_the_private_key] username@bastion-dns-name[or PUBLIC_IP]
+```
 
 ## **Usage**
 ```terraform
