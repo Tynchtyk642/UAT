@@ -33,7 +33,7 @@ module "eks" {
 }
 ```
 
-```
+```bash
 export AWS_ACCESS_KEY_ID=<write your access key id>
 export AWS_SECRET_ACCESS_KEY=<write you secret access key>
 export AWS_DEFAULT_REGION=<write default region to create resource in>
