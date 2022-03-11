@@ -74,6 +74,7 @@ Then perform the following commands on the root folder:
 
 ## **Inputs**
 |Name|Description|Type|Default|Required|
+|----|-----------|----|-------|--------|
 |`tags`|A mapping of tags to assign.|`map(string)`|`{}`|no|
 |`bastion_ami`|The AMI that the Bastion Host will use.|`string`|`""`|yes|
 |`associate_public_ip_address`|Whether to associate a public IP address with an instance in a VPC.|`bool`|`true`|no|
