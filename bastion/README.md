@@ -106,5 +106,11 @@ Then perform the following commands on the root folder:
 |`bastion_iam_permissions_boundary`|IAM Role Permissions Boundary to constrain the bastion host role.|`string`|`""`|no|
 |`bastion_iam_policy_name`|IAM policy name to create for granting the instance role access to the bucket.|`string`|`BastionHost`|no|
 
-
+## **Outputs**
+|Name|Description|
+|----|-----------|
+|`bastion_host_security_group`|Bastion host Security Group ID.|
+|`bucket_kms_key_alias`|Alias name of Bucket KMS key.|
+|`bucket_name`|Bucket name.|
+|`elb_ip`|DNS name of Load Balancer.|
 
