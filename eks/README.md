@@ -45,6 +45,11 @@ Then perform the following commands on the root folder:
 - `terraform apply` to apply infrastructure build
 - `terraform destroy` to destroy the infrastructure
 
+Commands for connecting to the EKS Cluster:
+```bash
+aws eks --region <eks_region> update-kubeconfig --name <eks_name>
+```
+
 ## **Resources**
 |Name|Type|
 |----|----|
