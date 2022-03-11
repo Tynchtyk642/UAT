@@ -19,11 +19,20 @@ module "networking" {
   private_sn_count = 3
 }
 ```
-## **Requirments**
-| Name | Version |
-|------|---------|
-| ``terraform`` | ``~> 1.0`` |
-| ``aws`` | ``~> 4.0`` |
+
+```
+export AWS_ACCESS_KEY_ID=<write your access key id>
+export AWS_SECRET_ACCESS_KEY=<write you secret access key>
+export AWS_DEFAULT_REGION=<write default region to create resource in>
+```
+
+
+Then perform the following commands on the root folder:
+- `terraform init` terraform initialization
+- `terraform plan` to see the infrastructure plan
+- `terraform apply` to apply infrastructure build
+- `terraform destroy` to destroy the build infrastructure
+
 
 ## **Resources**
 | Name | Type |

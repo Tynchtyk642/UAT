@@ -27,7 +27,9 @@ variable "workers_group_default" {
   default = {}
 }
 
-variable "vpc_id" {}
+variable "vpc_id" {
+  type = string
+}
 
 variable "bastion_cidr" {
   type    = list(string)
