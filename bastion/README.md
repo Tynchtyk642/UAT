@@ -7,7 +7,7 @@
 ![](diagram/bastion.png)
 
 ## **Usage**
-``terraform
+```terraform
 module "bastion" {
   source = "./bastion" # <== Path to bastion module.
 
